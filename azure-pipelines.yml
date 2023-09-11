@@ -11,3 +11,5 @@ steps:
     inputs:
       command: restore #dotnet restore
       projects: '**/*.csproj'
+
+  - task: DotNetCoreCLI@2
