@@ -19,3 +19,13 @@ steps:
      command: build # dotnet build --no-restore --configuration Release
      arguments: '--no-restore --configuration Release'
      projects: '**/*.csproj'
+
+# publish the project create an artifact
+  - task: DotNetCoreCLI@2
+    displayName: 'Publish the project,create an artifact'
+    inputs:
+      command: publish #dotnet publish --no-restore --configuration Release --output $(???)/Release
+      projects: '**/*.csproj'
+      publishWebProjects: false
+      arguments: '--no-restore --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
+      zipAfterPublish: true
