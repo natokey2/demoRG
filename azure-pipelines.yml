@@ -12,4 +12,10 @@ steps:
       command: restore #dotnet restore
       projects: '**/*.csproj'
 
+# create a build task.
   - task: DotNetCoreCLI@2
+    displayName: 'Build the project'
+    inputs:
+     command: build # dotnet build --no-restore --configuration Release
+     arguments: '--no-restore --configuration Release'
+     projects: '**/*.csproj'
